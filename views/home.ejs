@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Public Policy Club, BITS Pilani</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR|Anton|Montserrat|Nanum+Myeongjo:700|Cairo|Exo" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="color: #eee">PPC</a>
+    </div>
+    <div class="collapse navbar-collapse" id="collapsse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/newsletter" style="color: #eee">Newsletter</a></li>
+        <li><a href="/gd" style="color: #eee">Group Discussion</a></li>
+        <li><a href="/login" style="color: #eee">Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div class="feature">
+    <div class="row">
+      <div class="head-feature">
+        <h5>What's new</h5>
+      </div>
+      <div class="col-md-3 col-sm-12" style="padding-right: 0">
+        <a href="#" placeholder="Article Name"><div class="caption-feature">
+          <h5 class="caption-feature-1">Lorem Ipsum</h5>
+        </div></a>
+      </div>
+      <div class="col-md-9 col-sm-12" style="padding-left: 0">
+        <a href="#" placeholder="Article Name"><img class="image-feature" src="temp.jpg" alt="temp"></a>
+      </div>
+    </div>
+  </div>
+  <div class="central">
+    <div class="head-central">
+      <h4>NEWSLETTER</h4>
+    </div>
+    <div class="row">
+     <% newsletter.forEach((newsletter)=> { %>
+      <div class="col-md-4 col-sm-12">
+        <a href="<%= newsletter._id %>"><div class="thumbnail">
+          <img src="<%= newsletter.image %>" alt="temp">
+          <div class="caption">
+            <h4 style="margin-bottom: 9px;font-size: 15px;color: #bc0d0d;"><%= newsletter.date %></h4>
+            <h3 style="font-size: 21px;margin-top: 2px;"><%= newsletter.title %></h3>
+            <h5><%= newsletter.content.substring(0,25) %></h5>
+          </div>
+        </div></a>
+      </div>
+      <%  }) %>
+    </div>
+    <div class="head-central-1">
+      <h4>GROUP DISCUSSION</h4>
+    </div>
+    <div class="row">
+      <% gd.forEach((gd)=>{ %>
+      <div class="col-md-4 col-sm-12">
+        <a href="<%= gd._id %>">
+          <div class="thumbnail">
+            <img src="<%= gd.image %>" alt="temp">
+            <div class="caption">
+              <h4 style="margin-bottom: 9px;font-size: 15px;color: #bc0d0d;"><%= gd.date %></h4>
+              <h3 style="font-size: 21px;margin-top: 2px;"><%= gd.title %></h3>
+              <h5><%= gd.subtopic.content.substring(0,20) %></h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    </div>
+  </div>
+<% include ../partials/footer.ejs %>

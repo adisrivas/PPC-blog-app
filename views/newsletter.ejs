@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Blogs- Public Policy Club, BITS Pilani</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="public/stylesheets/home.css">
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">PPC</a>
+    </div>
+    <div class="collapse navbar-collapse" id="collapsse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/newsletter">Newsletter</a></li>
+        <li><a href="/gd">Group Discussion</a></li>
+        <li><a href="/login">Sign In</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+	<div class="row"> 
+	<% newsletter.forEach((blog)=>{ %>
+	<div class="col-md-4 col-sm-12">
+	    <div class="thumbnail">
+			<div>
+			    <img src="<%= newsletter.image %>" alt="img">
+            </div>
+            <div class="caption">
+            	<h4><%= newsletter.title %></h4>
+            	<p><%= newsletter.date %></p>
+            	<p><%= newsletter.content.substring(0,25) %></p>
+            </div>
+		</div>	
+	</div>
+<% }) %>
+</div>
+</div>
+<% include ../partials/footer.ejs %>
